@@ -17,9 +17,9 @@ path = 'myData'
 testRatio = 0.2
 valRatio = 0.2
 imageDimensions= (32,32,3)
-batchSizeVal= 50
-epochsVal = 10
-stepsPerEpochVal = 2000
+# batchSizeVal= 50
+# epochsVal = 10
+# stepsPerEpochVal = 2000
 ####################################################
 
 #### IMPORTING DATA/IMAGES FROM FOLDERS 
@@ -102,6 +102,12 @@ y_train = to_categorical(y_train,noOfClasses)
 y_test = to_categorical(y_test,noOfClasses)
 y_validation = to_categorical(y_validation,noOfClasses)
 
+
+batchSizeVal= 50
+epochsVal = 10
+stepsPerEpochVal = len(X_train) // batchSizeVal
+
+
 #### CREATING THE MODEL 
 def myModel():
     noOfFilters = 60
@@ -109,7 +115,7 @@ def myModel():
     sizeOfFilter2 = (3, 3)
     sizeOfPool = (2,2)
     noOfNodes= 500
-
+   
     model = Sequential()
     model.add((Conv2D(noOfFilters,sizeOfFilter1,input_shape=(imageDimensions[0],
                       imageDimensions[1],1),activation='relu')))
