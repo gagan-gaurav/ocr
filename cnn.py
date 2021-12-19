@@ -166,6 +166,7 @@ print('Test Score = ',score[0])
 print('Test Accuracy =', score[1])
 
 #### SAVE THE TRAINED MODEL 
-pickle_out= open("model_trained.p", "wb")
-pickle.dump(model,pickle_out)
-pickle_out.close()
+model.save('trained_model.h5')
+# pickle_out= open("model_trained.p", "wb")
+# pickle.dump(model,pickle_out)
+# pickle_out.close()
